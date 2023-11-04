@@ -1,16 +1,9 @@
-import { Link } from "react-router-dom";
 import './style.css';
 
 const PageNotFound = () => {
     return (
         <>
-  <a
-    href="https://codepen.io/ZonFire99/full/njdls/"
-    className="viewFull"
-    target="_parent"
-  >
-    View in full it looks way better :)
-  </a>
+  <div className="page">
   <div className="error">
     <div className="wrap">
       <div className={404}>
@@ -80,6 +73,7 @@ const PageNotFound = () => {
         </span>
       </code>
     </div>
+  </div>
   </div>
 </>
 
