@@ -85,7 +85,7 @@ const orgChart = {
                     'name': 'JavaScript',
                     'current': false,
                     'blocked': false,
-                    'children': []
+                    // 'children': []
                 }
             ]
         },
@@ -155,6 +155,7 @@ const OrgChartTree = () => {
     const onClickNode = (nodeData, evt) => {
         console.log('Clicked node', nodeData);
         // You can perform other actions here based on the clicked node
+        
     };
     return (
         // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.
