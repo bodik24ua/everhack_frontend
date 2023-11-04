@@ -125,7 +125,37 @@ const orgChart = {
     ]
 }
 
+const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
+    <g>
+        {/* Rectangle node */}
+        <rect
+            width="140"
+            height="50"
+            x="-70"
+            y="-25"
+            fill="#D6EAF8"
+            stroke="#2471A3"
+            strokeWidth="2"
+            // onClick={toggleNode}
+        />
+        {/* Node text */}
+        <text
+            fill="#000"
+            x="0"
+            y="0"
+            textAnchor="middle"
+            alignmentBaseline="central"
+            style={{ pointerEvents: 'none' }}>
+            {nodeDatum.name}
+        </text>
+    </g>
+);
+
 const OrgChartTree = () => {
+    const onClickNode = (nodeData, evt) => {
+        console.log('Clicked node', nodeData);
+        // You can perform other actions here based on the clicked node
+    };
     return (
         // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.
         <div
@@ -134,14 +164,15 @@ const OrgChartTree = () => {
                 display: 'flex',
                 justifyContent: 'center', // Center horizontally
                 alignItems: 'center',     // Center vertically
-                width: '1000px',
-                height: '800px',
-                overflow: 'hidden'
+                width: '1200px',
+                height: '1000px',
             }}>
             <Tree
-                translate={{ x: 0, y: 0 }}
+                translate={{ x:800, y: 70 }}
                 orientation="vertical"
                 zoom={1}
+                onNodeClick={onClickNode}
+                renderCustomNodeElement={renderRectSvgNode}
                 data={orgChart}/>
         </div>
     )
