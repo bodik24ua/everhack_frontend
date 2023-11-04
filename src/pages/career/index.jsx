@@ -1,6 +1,8 @@
+import OrgChartTree
+    from '../../components/orgChartTree'
 
 const Career = () => {
-    return 'Career'
+    return <OrgChartTree/>
 }
 
 export default Career

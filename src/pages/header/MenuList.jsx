@@ -25,6 +25,7 @@ import {
     ExpandLess,
     ExpandMore
 } from '@mui/icons-material'
+import FolderSharedIcon from '@mui/icons-material/FolderShared';
 
 const MenuList = ({toggleDrawer}) => {
     const [open, setOpen] = React.useState(false)
@@ -71,7 +72,7 @@ const MenuList = ({toggleDrawer}) => {
                         <PeopleOutlineIcon/>
                     </ListItemIcon>
                     <ListItemText
-                        primary="Inbox"/>
+                        primary="People"/>
                     {open ?
                         <ExpandLess/> :
                         <ExpandMore/>}
@@ -84,6 +85,19 @@ const MenuList = ({toggleDrawer}) => {
                         component="div"
                         disablePadding>
                         <Link
+                            to={'/'}
+                            sx={{pl: 4}}
+                            onClick={toggleDrawer(false)}>
+                            <ListItemButton
+                                sx={{pl: 4}}>
+                                <ListItemIcon>
+                                    <FolderSharedIcon/>
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary="Directory"/>
+                            </ListItemButton>
+                        </Link>
+                        <Link
                             to={'/career'}
                             sx={{pl: 4}}
                             onClick={toggleDrawer(false)}>
@@ -93,7 +107,7 @@ const MenuList = ({toggleDrawer}) => {
                                     <MovingIcon/>
                                 </ListItemIcon>
                                 <ListItemText
-                                    primary="Starred"/>
+                                    primary="Carreer"/>
                             </ListItemButton>
                         </Link>
                     </List>
