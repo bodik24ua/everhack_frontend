@@ -87,7 +87,11 @@ const orgChart = {
                     'name': 'JavaScript',
                     'current': false,
                     'blocked': false,
-                    // 'children': []
+                    'children': [{
+                        'name': 'JavaScript Junior',
+                        'current': false,
+                        'blocked': false
+                    }]
                 }
             ]
         },

@@ -1,3 +1,4 @@
+import React from 'react'
 import OrgChartTree
     from '../../components/orgChartTree'
 
