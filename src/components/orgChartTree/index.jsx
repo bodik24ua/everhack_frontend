@@ -1,8 +1,5 @@
-import React
-    from 'react'
-import Tree
-    from 'react-d3-tree'
-
+import React from 'react'
+import Tree from 'react-d3-tree'
 
 
 // This is a simplified example of an org chart with a depth of 2.
@@ -131,6 +128,10 @@ const orgChart = {
     ]
 }
 
+function getRoleRectColor(nodeDatum) {
+    return nodeDatum.current ? "#2ECC71" : nodeDatum.blocked ? "#D6EAF8" : "#ffffff";
+}
+
 const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
     <g>
         {/* Rectangle node */}
@@ -139,7 +140,7 @@ const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
             height="50"
             x="-70"
             y="-25"
-            fill="#D6EAF8"
+            fill={getRoleRectColor(nodeDatum)}
             stroke="#2471A3"
             strokeWidth="2"
             rx="10"  // Horizontal radius
