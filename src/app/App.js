@@ -13,6 +13,8 @@ import PageNotFound
 
 import Header
     from '../pages/header/'
+import CareerRole
+    from '../pages/career/CareerRole'
 
 function App() {
     return (
@@ -32,6 +34,10 @@ function App() {
                         element={
                             <Career/>}>
                     </Route>
+                    <Route path="/career" element={<Career/>}>
+                        <Route path="career/:role" element={<CareerRole />} />
+                    </Route>
+
                     {/* 👇️ only match this when no other routes match */}
                     <Route
                         path="*"
