@@ -158,6 +158,8 @@ const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
 
 const onClickNode = (nodeData, evt) => {
     console.log('Clicked node', nodeData);
+    alert(nodeData.children[0].name);
+    // alert(nodeData.children[0].name + "\n" + nodeData.children[0].children[0].name + "\n" + nodeData.children[0].children[0].children[0].name);
     // You can perform other actions here based on the clicked node
 };
 
