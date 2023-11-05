@@ -2,6 +2,8 @@ import React
     from 'react'
 import Tree
     from 'react-d3-tree'
+    
+
 
 // This is a simplified example of an org chart with a depth of 2.
 // Note how deeper levels are defined recursively via the `children` property.
@@ -136,10 +138,13 @@ const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
             fill="#D6EAF8"
             stroke="#2471A3"
             strokeWidth="2"
-            // onClick={toggleNode}
-        />
+            rx="10"  // Horizontal radius
+            ry="10"  // Vertical radius
+            onClick={() => onClickNode(nodeDatum)}
+            />
         {/* Node text */}
         <text
+            strokeWidth={1}
             fill="#000"
             x="0"
             y="0"
@@ -151,32 +156,34 @@ const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
     </g>
 );
 
+const onClickNode = (nodeData, evt) => {
+    console.log('Clicked node', nodeData);
+    // You can perform other actions here based on the clicked node
+};
+
 const OrgChartTree = () => {
-    const onClickNode = (nodeData, evt) => {
-        console.log('Clicked node', nodeData);
-        // You can perform other actions here based on the clicked node
-        
-    };
     return (
-        // `<Tree />` will fill width/height of its container; in this case `#treeWrapper`.
         <div
             id="treeWrapper"
             style={{
                 display: 'flex',
-                justifyContent: 'center', // Center horizontally
-                alignItems: 'center',     // Center vertically
-                width: '1200px',
-                height: '1000px',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100%',
+                position: 'fixed',
+                background: 'lightgrey',
             }}>
             <Tree
-                translate={{ x:800, y: 70 }}
+                translate={{ x: 800, y: 70 }}
                 orientation="vertical"
                 zoom={1}
-                onNodeClick={onClickNode}
+                onClick={onClickNode}
                 renderCustomNodeElement={renderRectSvgNode}
-                data={orgChart}/>
+                data={orgChart}
+            />
         </div>
-    )
-}
+    );
+};
 
-export default OrgChartTree
+export default OrgChartTree;
