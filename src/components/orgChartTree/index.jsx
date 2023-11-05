@@ -2,7 +2,7 @@ import React
     from 'react'
 import Tree
     from 'react-d3-tree'
-    
+
 
 
 // This is a simplified example of an org chart with a depth of 2.
@@ -141,7 +141,7 @@ const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
             rx="10"  // Horizontal radius
             ry="10"  // Vertical radius
             onClick={() => onClickNode(nodeDatum)}
-            />
+        />
         {/* Node text */}
         <text
             strokeWidth={1}
@@ -158,8 +158,47 @@ const renderRectSvgNode = ({ nodeDatum, toggleNode }) => (
 
 const onClickNode = (nodeData, evt) => {
     console.log('Clicked node', nodeData);
-    alert(nodeData.children[0].name);
-    // alert(nodeData.children[0].name + "\n" + nodeData.children[0].children[0].name + "\n" + nodeData.children[0].children[0].children[0].name);
+    let showAlert = false;
+    try {
+        alert("Have five children nodes: \n" + nodeData.children[0].name + "\n" + nodeData.children[0].children[0].name + "\n" + nodeData.children[0].children[0].children[0].name + "\n" + nodeData.children[0].children[0].children[0].children[0].name);
+        showAlert = true;
+    }
+    catch (error) { }
+    try {
+        if (!showAlert) {
+            alert("Have four children nodes: \n" + nodeData.children[0].name + "\n" + nodeData.children[0].children[0].name + "\n" + nodeData.children[0].children[0].children[0].name + "\n" + nodeData.children[0].children[0].children[0].children[0].name );
+            showAlert = true;
+        }
+    }
+    catch (error) { }
+    try {
+        if (!showAlert) {
+            alert("Have three children nodes: \n" + nodeData.children[0].name + "\n" + nodeData.children[0].children[0].name + "\n" + nodeData.children[0].children[0].children[0].name + "\n");
+            showAlert = true;
+        }
+    }
+    catch (error) { }
+    try {
+        if (!showAlert) {
+            alert("Have two children nodes: \n" + nodeData.children[0].name + "\n" + nodeData.children[0].children[0].name + "\n" );
+            showAlert = true;
+        }
+    }
+    catch (error) { }
+    try {
+        if (!showAlert) {
+            alert("Have one children node: \n" + nodeData.children[0].name + "\n");
+            showAlert = true;
+        }
+    }
+    catch (error) { }
+    try {
+        if (!showAlert) {
+            alert("Do not have a children nodes. \n Name current node: " + nodeData.name);
+            showAlert = true;
+        }
+    }
+    catch (error) { }
     // You can perform other actions here based on the clicked node
 };
 
